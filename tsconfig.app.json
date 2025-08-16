@@ -1,0 +1,26 @@
+{
+  "compilerOptions": {
+    "strict": true,
+    "composite": true,
+    "tsBuildInfoFile": "./node_modules/.tmp/tsbuild.app.info",
+    "baseUrl": ".",
+    "module": "preserve",
+    "moduleResolution": "bundler",
+    "paths": {
+      "@/*": [
+        "./src/*"
+      ],
+      "~/*": [
+        "./*"
+      ]
+    },
+    "types": [
+      "node"
+    ],
+    "target": "es2022",
+    "noEmit": true
+  },
+  "include": [
+    "src/**/*.ts"
+  ]
+}
