@@ -1,8 +1,15 @@
 {
+  "extends": [
+    "@tsconfig/node22/tsconfig.json",
+    "@tsconfig/node-ts/tsconfig.json"
+  ],
   "compilerOptions": {
-    "strict": true,
     "composite": true,
-    "tsBuildInfoFile": "./node_modules/.tmp/tsbuild.app.info",
+    "tsBuildInfoFile": "node_modules/.tmp/tsconfig.app.tsbuildinfo",
+    "types": [
+      "node"
+    ],
+    "noEmit": true,
     "baseUrl": ".",
     "module": "preserve",
     "moduleResolution": "bundler",
@@ -14,11 +21,6 @@
         "./*"
       ]
     },
-    "types": [
-      "node"
-    ],
-    "target": "es2022",
-    "noEmit": true
   },
   "include": [
     "src/**/*.ts"
