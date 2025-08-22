@@ -25,7 +25,20 @@ export default defineConfig([
     },
     rules: {
       '@typescript-eslint/no-explicit-any': 'warn',
+      'no-useless-rename': 'error',
+      'perfectionist/sort-exports': ['error', {
+        order: 'asc',
+        type: 'natural',
+      }],
       'perfectionist/sort-imports': ['error', {
+        order: 'asc',
+        type: 'natural',
+      }],
+      'perfectionist/sort-named-exports': ['error', {
+        order: 'asc',
+        type: 'natural',
+      }],
+      'perfectionist/sort-named-imports': ['error', {
         order: 'asc',
         type: 'natural',
       }],
