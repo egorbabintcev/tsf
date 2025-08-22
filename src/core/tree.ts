@@ -1,15 +1,15 @@
-import type { TsConfigJson } from 'type-fest'
-
 import fs from 'node:fs'
 import path from 'node:path'
 import ts from 'typescript'
+
+import type { TSConfigShape } from '@/shared/types'
 
 import { tsDiagnosticToString } from '@/shared/utils'
 
 interface ConfigTree {
   absPath: string
   external: boolean
-  config: TsConfigJson | Record<string, any>
+  config: TSConfigShape
   extends?: ConfigTree[]
 }
 
