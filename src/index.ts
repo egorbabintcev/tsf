@@ -1,6 +1,6 @@
 import { defineCommand, runMain } from 'citty'
 
-import { createConfigTree } from '@/core/tree'
+import { createTree } from '@/core/tree'
 import { version } from '~/package.json'
 
 const APP_VERSION = version
@@ -23,7 +23,7 @@ const main = defineCommand({
     version: APP_VERSION,
   },
   async run({ args }) {
-    const configTree = createConfigTree(args.searchPath, args.configName)
+    const configTree = createTree(args.searchPath, args.configName)
 
     console.log(configTree)
   },
