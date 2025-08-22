@@ -9,7 +9,6 @@ export default defineConfig(((opts) => {
       '@': path.resolve('./src'),
       '~': path.resolve('./'),
     },
-    external: ['typescript'],
     minify: prod,
     platform: 'node',
     report: prod,
