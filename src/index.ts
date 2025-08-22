@@ -1,8 +1,7 @@
 import { defineCommand, runMain } from 'citty'
 
+import { createConfigTree } from '@/core/tree'
 import { version } from '~/package.json'
-
-import { createConfigTree } from './tree'
 
 const APP_VERSION = version
 

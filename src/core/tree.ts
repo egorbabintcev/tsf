@@ -4,7 +4,7 @@ import fs from 'node:fs'
 import path from 'node:path'
 import ts from 'typescript'
 
-import { tsDiagnosticToString } from './utils'
+import { tsDiagnosticToString } from '@/shared/utils'
 
 interface ConfigTree {
   absPath: string
