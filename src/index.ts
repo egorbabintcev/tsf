@@ -1,6 +1,8 @@
 import { defineCommand, runMain } from 'citty'
+import util from 'node:util'
 
-import { createTree } from '@/core/tree'
+import { getConfigSpec } from '@/core/get-spec'
+import { resolveConfigTree } from '@/core/resolve-tree'
 import { version } from '~/package.json'
 
 const APP_VERSION = version
@@ -23,9 +25,10 @@ const main = defineCommand({
     version: APP_VERSION,
   },
   async run({ args }) {
-    const configTree = createTree(args.searchPath, args.configName)
+    const rootConfigSpec = getConfigSpec(args.searchPath, args.configName)
+    const configTree = resolveConfigTree(rootConfigSpec)
 
-    console.log(configTree)
+    console.log(util.inspect(configTree, { colors: true, depth: Infinity }))
   },
 })
 
