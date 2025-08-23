@@ -12,6 +12,7 @@ export default defineConfig(((opts) => {
     minify: prod,
     platform: 'node',
     report: prod,
+    sourcemap: !prod,
     target: ['node22'],
   }
 }) satisfies UserConfigFn)
