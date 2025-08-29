@@ -1,6 +1,7 @@
 import { defineCommand, runMain } from 'citty'
 import util from 'node:util'
 
+import { applyConfigFixes } from '@/core/apply-fixes'
 import { getConfigSpec } from '@/core/get-spec'
 import { resolveConfigTree } from '@/core/resolve-tree'
 import { version } from '~/package.json'
@@ -27,8 +28,9 @@ const main = defineCommand({
   async run({ args }) {
     const rootConfigSpec = getConfigSpec(args.searchPath, args.configName)
     const configTree = resolveConfigTree(rootConfigSpec)
-
-    console.log(util.inspect(configTree, { colors: true, depth: Infinity }))
+    for (const node of configTree) {
+      applyConfigFixes(node)
+    }
   },
 })
 

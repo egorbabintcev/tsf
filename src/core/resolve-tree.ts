@@ -18,28 +18,34 @@ function resolveExternal(to: string, from: string) {
 }
 
 function resolveConfigTree(spec: ConfigSpec): ConfigTree[] {
+  const tree: ConfigTree[] = []
+
   if (spec.config.references?.length) {
-    return spec.config.references.flatMap((ref) => {
+    const flatMappedRefs = spec.config.references.flatMap((ref) => {
       const resolvedRefPath = resolveExternal(ref.path, spec.absPath)
       const refConfigSpec = getConfigSpec(path.dirname(resolvedRefPath), path.basename(resolvedRefPath))
       return resolveConfigTree(refConfigSpec)
     })
+
+    tree.push(...flatMappedRefs)
   }
 
-  const tree: ConfigTree = { spec }
+  const self: ConfigTree = { spec }
 
   if (spec.config.extends) {
     const configExtends = [spec.config.extends].flat()
-    tree.extends = []
+    self.extends = []
 
     for (const extend of configExtends) {
       const resolvedExtendPath = resolveExternal(extend, spec.absPath)
       const extendConfigSpec = getConfigSpec(path.dirname(resolvedExtendPath), path.basename(resolvedExtendPath))
-      tree.extends.push(...resolveConfigTree(extendConfigSpec))
+      self.extends.push(...resolveConfigTree(extendConfigSpec))
     }
   }
 
-  return [tree]
+  tree.push(self)
+
+  return tree
 }
 
 export {
