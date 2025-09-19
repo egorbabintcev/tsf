@@ -9,7 +9,7 @@
     "tsf": "index.js"
   },
   "scripts": {
-    "start": "tsdown --watch",
+    "dev": "tsdown --watch",
     "build": "tsdown --env.NODE_ENV=production",
     "lint": "eslint",
     "lint-fix": "eslint --fix",
