@@ -9,11 +9,16 @@
     "tsf": "index.js"
   },
   "scripts": {
-    "dev": "tsdown --watch",
     "build": "tsdown --env.NODE_ENV=production",
+    "dev": "tsdown --watch",
     "lint": "eslint",
     "lint-fix": "eslint --fix",
     "typecheck": "tsc -b"
+  },
+  "dependencies": {
+    "citty": "0.1.6",
+    "consola": "3.4.2",
+    "typescript": "5.9.2"
   },
   "devDependencies": {
     "@eslint/js": "9.36.0",
@@ -26,10 +31,5 @@
     "tsdown": "0.15.4",
     "type-fest": "5.0.1",
     "typescript-eslint": "8.44.1"
-  },
-  "dependencies": {
-    "citty": "0.1.6",
-    "consola": "3.4.2",
-    "typescript": "5.9.2"
   }
 }
