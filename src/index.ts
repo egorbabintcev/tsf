@@ -1,7 +1,7 @@
 import { defineCommand, runMain } from 'citty'
-import util from 'node:util'
 
 import { ConfigDescriptor } from '@/core/descriptor'
+import { sortTSConfig } from '@/core/sort'
 import { version } from '~/package.json'
 
 const APP_VERSION = version
@@ -25,8 +25,9 @@ const main = defineCommand({
   },
   async run({ args }) {
     const config = new ConfigDescriptor(args.searchPath, args.configName)
+    const sorted = sortTSConfig(config)
 
-    console.log(util.inspect(config.content, { colors: true, depth: Infinity }))
+    await config.write(sorted)
   },
 })
 
