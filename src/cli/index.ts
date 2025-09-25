@@ -7,6 +7,7 @@ const APP_VERSION = version
 
 const main = defineCommand({
   meta: {
+    description: 'CLI app for optimizing your tsconfig',
     name: 'tsf',
     version: APP_VERSION,
   },
