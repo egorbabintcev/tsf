@@ -3,12 +3,10 @@
     "@tsconfig/node22/tsconfig.json",
     "@tsconfig/node-ts/tsconfig.json"
   ],
+  "include": [
+    "src/**/*.ts"
+  ],
   "compilerOptions": {
-    "composite": true,
-    "tsBuildInfoFile": "node_modules/.tmp/tsconfig.app.tsbuildinfo",
-    "types": [
-      "node"
-    ],
     "noEmit": true,
     "baseUrl": ".",
     "module": "preserve",
@@ -21,8 +19,10 @@
         "./*"
       ]
     },
-  },
-  "include": [
-    "src/**/*.ts"
-  ]
+    "types": [
+      "node"
+    ],
+    "composite": true,
+    "tsBuildInfoFile": "node_modules/.tmp/tsconfig.app.tsbuildinfo"
+  }
 }

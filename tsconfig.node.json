@@ -3,17 +3,17 @@
     "@tsconfig/node22/tsconfig.json",
     "@tsconfig/node-ts/tsconfig.json"
   ],
-  "compilerOptions": {
-    "composite": true,
-    "tsBuildInfoFile": "./node_modules/.tmp/tsbuild.node.info",
-    "types": [
-      "node"
-    ],
-    "allowJs": true,
-    "noEmit": true
-  },
   "include": [
     "*.config.ts",
     "*.config.js"
-  ]
+  ],
+  "compilerOptions": {
+    "noEmit": true,
+    "allowJs": true,
+    "types": [
+      "node"
+    ],
+    "composite": true,
+    "tsBuildInfoFile": "./node_modules/.tmp/tsbuild.node.info"
+  }
 }
